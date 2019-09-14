@@ -13,6 +13,8 @@ npm install -g generator-agmdev-barebone
 Then generate your new project:
 
 ```bash
+mkdir new-barebone-project
+cd new-barebone-project
 yo agmdev-barebone
 ```
 
