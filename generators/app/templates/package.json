@@ -4,7 +4,7 @@
   "description": "<%= projectDescription %>",
   "main": "index.js",
   "engines": {
-    "node": ">= 10"
+    "node": ">= 10.0.0"
   },
   "scripts": {
     "start": "nodemon index.js",
@@ -17,11 +17,15 @@
   },
   "author": "<%= author %>",
   "license": "<%= license %>",
-  "keywords": <%= keywords %>,
-  "homepage": "https://github.com/<%= githubUsername %>/<%= projectName %>#readme",
+  "homepage": "https://github.com/<%= githubUsername %>/<%= projectName %>",
   "lint-staged": {
-    "{src,tests}/**/*.{js,jsx}": [
-      "npm run --silent lint:fix", "git add"
+    "*.js": [
+      "npm run --silent lint:fix",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
     ]
   },
   "husky": {

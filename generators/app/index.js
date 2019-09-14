@@ -58,6 +58,8 @@ module.exports = class extends Generator {
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       this.props = props;
+      this.log(`Initializing git repository...`);
+      this.spawnCommand('git', ['init']);
     });
   }
 
@@ -171,7 +173,8 @@ module.exports = class extends Generator {
         nodemon: "^1.19.2",
         husky: "^3.0.5",
         "lint-staged": "^9.2.5",
-      }
+      },
+      keywords: this.props.keywords.split(',').map(i => i.trim().toLowerCase()),
     }
     this.fs.copyTpl(
       this.templatePath('package.json'),
@@ -181,7 +184,7 @@ module.exports = class extends Generator {
         projectDescription: this.props.projectDescription,
         author: this.props.author,
         license: this.props.license,
-        keywords: this.props.keywords.split(',').map(i => i.trim().toLowerCase()),
+        githubUsername: this.props.githubUsername,
       }
     );
     this.fs.extendJSON(this.destinationPath('package.json'), packageJson);
@@ -197,9 +200,15 @@ module.exports = class extends Generator {
 
   end() {
     this.log(`Aaaand... that's all folks!\n`);
+
     this.log(`Checking linting rules...`);
     this.spawnCommand('npm', ['run', 'lint']);
+
+    this.log(`Running tests...`);
     this.spawnCommand('npm', ['run', 'test']);
-    this.spawnCommand('git', ['init']);
+
+    this.log(`Commit files...`);
+    this.spawnCommand('git', ['add', '.']);
+    this.spawnCommand('git', ['commit', '-m', 'initial commit']);
   }
 };
