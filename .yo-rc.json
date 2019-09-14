@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Adrian Gonzalo",
+      "authorEmail": "gonzahh@gmail.com",
+      "authorUrl": "https://agm-dev.ninja"
+    }
+  }
+}

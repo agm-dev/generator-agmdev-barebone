@@ -1,0 +1,32 @@
+{
+  "name": "<%= projectName %>",
+  "version": "1.0.0",
+  "description": "<%= projectDescription %>",
+  "main": "index.js",
+  "engines": {
+    "node": ">= 10"
+  },
+  "scripts": {
+    "start": "nodemon index.js",
+    "prod": "node index.js",
+    "develop": "jest --watch src",
+    "test": "jest",
+    "test:coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "author": "<%= author %>",
+  "license": "<%= license %>",
+  "keywords": <%= keywords %>,
+  "homepage": "https://github.com/<%= githubUsername %>/<%= projectName %>#readme",
+  "lint-staged": {
+    "{src,tests}/**/*.{js,jsx}": [
+      "npm run --silent lint:fix", "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test && lint-staged"
+    }
+  }
+}
