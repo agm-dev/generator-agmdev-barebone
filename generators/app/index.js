@@ -9,12 +9,23 @@ const supportedLicenses = {
 };
 
 module.exports = class extends Generator {
+  constructor(args, options) {
+    super(args, options);
+
+    this.option('name', {
+      type: String,
+      required: true,
+      desc: 'Defines the name of the package'
+    })
+  }
+
   prompting() {
     // Have Yeoman greet the user.
+    const generatorName = this.options.name || "agmdev-barebone";
     this.log(
       yosay(
         `Holi!\n\nWelcome to the awesome ${chalk.red(
-          "agmdev-barebone"
+          generatorName
         )} generator!`
       )
     );
