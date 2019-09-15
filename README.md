@@ -32,7 +32,7 @@ MIT © [Adrian Gonzalo](https://agm-dev.ninja)
 
 [npm-image]: https://badge.fury.io/js/generator-agmdev-barebone.svg
 [npm-url]: https://npmjs.org/package/generator-agmdev-barebone
-[travis-image]: https://travis-ci.com/agm-dev/generator-agmdev-barebone.svg?branch=master
-[travis-url]: https://travis-ci.com/agm-dev/generator-agmdev-barebone
+[travis-image]: https://travis-ci.org/agm-dev/generator-agmdev-barebone.svg?branch=master
+[travis-url]: https://travis-ci.org/agm-dev/generator-agmdev-barebone
 [daviddm-image]: https://david-dm.org/agm-dev/generator-agmdev-barebone.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/agm-dev/generator-agmdev-barebone
