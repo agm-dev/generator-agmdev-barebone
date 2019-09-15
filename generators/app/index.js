@@ -148,8 +148,7 @@ module.exports = class extends Generator {
     );
 
     // .gitignore
-    const gitIgnore = ".gitignore";
-    this.fs.copy(this.templatePath(gitIgnore), this.destinationPath(gitIgnore));
+    this.fs.copy(this.templatePath("ignoregit"), this.destinationPath(".gitignore"));
 
     // .eslintrc.js
     const eslintRc = ".eslintrc.js";
