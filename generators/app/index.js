@@ -12,11 +12,11 @@ module.exports = class extends Generator {
   constructor(args, options) {
     super(args, options);
 
-    this.option('name', {
+    this.option("name", {
       type: String,
       required: true,
-      desc: 'Defines the name of the package'
-    })
+      desc: "Defines the name of the package"
+    });
   }
 
   prompting() {
@@ -24,9 +24,7 @@ module.exports = class extends Generator {
     const generatorName = this.options.name || "agmdev-barebone";
     this.log(
       yosay(
-        `Holi!\n\nWelcome to the awesome ${chalk.red(
-          generatorName
-        )} generator!`
+        `Holi!\n\nWelcome to the awesome ${chalk.red(generatorName)} generator!`
       )
     );
 
@@ -148,7 +146,10 @@ module.exports = class extends Generator {
     );
 
     // .gitignore
-    this.fs.copy(this.templatePath("ignoregit"), this.destinationPath(".gitignore"));
+    this.fs.copy(
+      this.templatePath("ignoregit"),
+      this.destinationPath(".gitignore")
+    );
 
     // .eslintrc.js
     const eslintRc = ".eslintrc.js";
